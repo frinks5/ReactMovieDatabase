@@ -21,9 +21,12 @@ class App extends React.Component {
     axios.get(url)
       .then(response =>
       {
+
         // then put just the movies (not everything) into the state
         this.setState({movies: response.data.results});
+        console.log(this.state.movies)
       });
+      
 
   }
 
@@ -36,14 +39,27 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>Check out these movies!!!!!!</h1>
+        <h1>Check out these movies. Or don't.  I don't care.</h1>
+        <h6>Click on movie image to go to movie page</h6>
+        <div className="movies">
         {this.state.movies.map(movie =>
           {
-            return <h2>{movie.title} ({movie.release_date})</h2>;
-          })}
+            return (
+              <div className="movie">
+                <h2>{movie.title}</h2>
+                <h4>({movie.release_date})</h4>
+                <a href={"https://www.themoviedb.org/movie/" + movie.id} >
+                  <img src={"https://image.tmdb.org/t/p/w92" + movie.poster_path}  />
+                </a>
+              </div>
+        );
+        })}
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+

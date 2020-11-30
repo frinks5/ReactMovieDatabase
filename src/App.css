@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+
+}
+
+.movies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.movie {
+  width: 300px;
+  margin: 10px;
+  border: solid 2px black;
+  border-radius: 25px;
+  height: 300px;
 }
 
 .App-logo {
