@@ -1,13 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import PopUp from "./popup";
+import Movie from "./Movie";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      movies: []
+      movies: [],
+      seen: false
     }
   }
 
@@ -19,16 +22,18 @@ class App extends React.Component {
     // go grab (aka get) all the data from some url
     const url = "https://api.themoviedb.org/3/discover/movie?api_key=b6fbc7f3f313bd395902af464ef47262&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
     axios.get(url)
-      .then(response =>
-      {
+      .then(response => {
 
         // then put just the movies (not everything) into the state
-        this.setState({movies: response.data.results});
+        this.setState({ movies: response.data.results });
         console.log(this.state.movies)
       });
-      
+
 
   }
+
+
+
 
   render() {
     // let movies = [];
@@ -42,18 +47,13 @@ class App extends React.Component {
         <h1>Check out these movies. Or don't.  I don't care.</h1>
         <h6>Click on movie image to go to movie page</h6>
         <div className="movies">
-        {this.state.movies.map(movie =>
-          {
+          {this.state.movies.map(movie => {
             return (
-              <div className="movie">
-                <h2>{movie.title}</h2>
-                <h4>({movie.release_date})</h4>
-                <a href={"https://www.themoviedb.org/movie/" + movie.id} >
-                  <img src={"https://image.tmdb.org/t/p/w92" + movie.poster_path}  />
-                </a>
-              </div>
-        );
-        })}
+              <Movie movieInfo={movie} />
+            );
+          }
+          )
+          }
         </div>
       </div>
     );
