@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+
+If project is pulled from github and all files are not included,
+
+### `yarn install`
+
 In the project directory, you can run:
 
 ### `yarn start`
@@ -68,3 +73,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+To Do on the program:
+1) let user select how to view movies from this list:
+(all will be .asc or .desc)
+popularity
+release_date
+revenue
+primary_release_date
+original_title
+vote_average
+vote_count
